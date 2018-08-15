@@ -1,10 +1,8 @@
-# Skeleton Electron with React, Redux, Babel, Webpack, etc
+# Quick Delete
 
 ## How to Use
 
-1. Clone this application as a base for other Electron projects if you want
-1. Delete `.git` to start fresh
-1. Example files are in node and ui folders that you can delete
+1. 
 
 ## Starting for Dev
 

@@ -1,7 +1,7 @@
 {
-    "name": "skeleton",
+    "name": "quick-delete",
     "version": "0.0.0",
-    "description": "",
+    "description": "A super simple application to destroy photos because you have too many",
     "repository": "",
     "main": "src/node/entry.js",
     "scripts": {
