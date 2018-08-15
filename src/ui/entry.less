@@ -1,0 +1,24 @@
+@import '~normalize.css';
+@import 'components/app';
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./resources/OpenSans-Regular.ttf');
+}
+
+/*
+ * Manually reset some stuff normalize.css doesn't do because I want to control spacing, not Chrome
+ */
+ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5 {
+    padding: 0;
+    margin: 0;
+}
