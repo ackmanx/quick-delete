@@ -27,3 +27,12 @@ https://medium.com/front-end-hacking/fix-element-is-not-imported-jest-describe-i
 ## NPM
 
 Don't forget to `npm config set save-exact true` so npm doesn't add those useless carets in front of version numbers
+
+
+## Electron Remote
+
+This isn't intuitive so best to review it. In particular, When `remote.require('./module')` is called with a relative path (like in this example), the path is relative _to the entrypoint of the main process_.
+
+This app's main process entry point is `node/main.js`, so modules required with remote would be relative to that.
+
+https://electronjs.org/docs/api/remote

@@ -2,12 +2,13 @@ import './app.less'
 import React from 'react'
 import {connect} from 'react-redux'
 import * as ActionTypes from '../actions/action-types'
+import {getFiles} from '../actions/get-files'
 
 export class App extends React.Component {
 
     constructor(props) {
         super()
-        props.setSourcePath('/Volumes/Storage/Dropbox/Code/Camera Uploads')
+        props.setSourcePath('/Volumes/Storage/Dropbox/Camera Uploads')
     }
 
     render() {
@@ -22,7 +23,10 @@ export class App extends React.Component {
 const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
-    setSourcePath: sourcePath => dispatch({type: ActionTypes.SET_SOURCE_PATH, sourcePath})
+    setSourcePath: sourcePath => {
+        dispatch({type: ActionTypes.SET_SOURCE_PATH, sourcePath})
+        dispatch(getFiles(sourcePath))
+    }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
