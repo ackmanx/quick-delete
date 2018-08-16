@@ -8,7 +8,7 @@ export class App extends React.Component {
 
     constructor(props) {
         super()
-        props.setSourcePath('/Volumes/Storage/Dropbox/Camera Uploads')
+        props.setSourcePath('/Volumes/Storage/Dropbox/Code/quick-delete/src/test/images')
     }
 
     render() {

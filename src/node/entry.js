@@ -10,7 +10,11 @@ const url = require('url')
 let mainWindow
 
 function createWindow() {
-    mainWindow = new BrowserWindow()
+    mainWindow = new BrowserWindow({
+        //Hide the title bar to create a full-bleed experience
+        //This will really piss off the user, but hey I'm the only user, so no-one cares about me
+        frame: false,
+    })
 
     mainWindow.maximize()
 
