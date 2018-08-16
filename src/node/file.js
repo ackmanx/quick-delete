@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const sizeOf = require('image-size')
 
 exports.getImageFiles = sourceDir => {
     const imagesAndFolders = []
@@ -8,11 +9,15 @@ exports.getImageFiles = sourceDir => {
         const fileAbsolute = path.join(sourceDir, file)
 
         if (/.(jpg|jpeg)$/.test(file)) {
+            const dimensions = sizeOf(fileAbsolute);
+
             imagesAndFolders.push({
                 isDirectory: false,
                 srcOriginal: fileAbsolute,
                 srcThumbnail: '',
-                name: file
+                name: file,
+                width: dimensions.width,
+                height: dimensions.height,
             })
         }
     })

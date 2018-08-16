@@ -3,6 +3,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import * as ActionTypes from '../actions/action-types'
 import {getFiles} from '../actions/get-files'
+import {FullScreenImage} from './full-screen-image'
 
 export class App extends React.Component {
 
@@ -12,15 +13,20 @@ export class App extends React.Component {
     }
 
     render() {
+        const {files, selectedFileIndex} = this.props
+
         return (
-            <div>
-                Hello World
+            <div className='app'>
+                <FullScreenImage image={files[selectedFileIndex]}/>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+    files: state.files,
+    selectedFileIndex: state.app.selectedFileIndex,
+})
 
 const mapDispatchToProps = dispatch => ({
     setSourcePath: sourcePath => {
