@@ -6,10 +6,12 @@ import {createStore} from 'redux'
 import combinedReducers from './reducers'
 import App from './components/app'
 import './entry.less'
+import setupKeyBindings from './keybindings'
 
 const initialState = {
     app: {
         selectedFileIndex: 0,
+        maxFileIndex: 0,
     },
     files: []
 }
@@ -21,6 +23,8 @@ const store = createStore(
     //Being this is an Electron app, you also need to install redux dev tools via the code (see node/entry.js)
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
+
+setupKeyBindings(store)
 
 ReactDOM.render(
     <Provider store={store}>
