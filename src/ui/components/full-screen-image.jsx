@@ -25,13 +25,13 @@ export class FullScreenImage extends React.Component {
         //Landscape
         if (image.width > image.height) {
             if (image.width > window.innerWidth) {
-                displayedImageWidth = window.innerWidth
+                displayedImageWidth = '100vw'
             }
         }
         //Portrait
         else {
             if (image.height > window.innerHeight) {
-                displayedImageHeight = window.innerHeight
+                displayedImageHeight = '100vh'
             }
         }
 
