@@ -12,6 +12,7 @@ const initialState = {
     app: {
         selectedFileIndex: 0,
         maxFileIndex: 0,
+        listToDelete: [],
     },
     files: []
 }

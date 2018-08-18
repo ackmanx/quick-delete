@@ -8,8 +8,10 @@ export class ActionBar extends React.Component {
     }
 
     render() {
+        const {imagePath, markToDelete} = this.props
+
         return (
-            <div className='action-bar'>
+            <div className='action-bar' onClick={() => markToDelete(imagePath)}>
                 <img src={deleteIcon}/>
             </div>
         )
