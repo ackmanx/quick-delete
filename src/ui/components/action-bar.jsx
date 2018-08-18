@@ -8,10 +8,10 @@ export class ActionBar extends React.Component {
     }
 
     render() {
-        const {imagePath, markToDelete} = this.props
+        const {imagePath, markedForDelete, handleMarkDelete} = this.props
 
         return (
-            <div className='action-bar' onClick={() => markToDelete(imagePath)}>
+            <div className={`action-bar ${markedForDelete ? 'action-bar--marked' : ''}`} onClick={() => handleMarkDelete(imagePath)}>
                 <img src={deleteIcon}/>
             </div>
         )

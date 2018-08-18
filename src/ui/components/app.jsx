@@ -9,7 +9,8 @@ import {ActionBar} from './action-bar'
 export class App extends React.Component {
 
     static defaultProps = {
-        currentImage: {}
+        currentImage: {},
+        listToDelete: [],
     }
 
     constructor(props) {
@@ -18,12 +19,16 @@ export class App extends React.Component {
     }
 
     render() {
-        const {currentImage, markToDelete} = this.props
+        const {currentImage, handleMarkDelete, listToDelete} = this.props
+
+        const markedForDelete = listToDelete.includes(currentImage.srcOriginal)
 
         return (
             <div className='app'>
                 <FullScreenImage image={currentImage}/>
-                <ActionBar imagePath={currentImage.srcOriginal} markToDelete={markToDelete}/>
+                <ActionBar imagePath={currentImage.srcOriginal}
+                           markedForDelete={markedForDelete}
+                           handleMarkDelete={handleMarkDelete}/>
             </div>
         )
     }
@@ -31,6 +36,7 @@ export class App extends React.Component {
 
 const mapStateToProps = state => ({
     currentImage: state.files[state.app.selectedFileIndex],
+    listToDelete: state.app.listToDelete,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -38,7 +44,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch({type: ActionTypes.SET_SOURCE_PATH, sourcePath})
         dispatch(getFiles(sourcePath))
     },
-    markToDelete: (imagePathToDelete) => dispatch({type: ActionTypes.MARK_TO_DELETE, imagePathToDelete}),
+    handleMarkDelete: (imagePathToDelete) => dispatch({type: ActionTypes.MARK_TO_DELETE, imagePathToDelete}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
