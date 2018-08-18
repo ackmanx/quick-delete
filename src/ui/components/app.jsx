@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import * as ActionTypes from '../actions/action-types'
 import {getFiles} from '../actions/get-files'
 import {FullScreenImage} from './full-screen-image'
+import {ActionBar} from './action-bar'
 
 export class App extends React.Component {
 
@@ -18,6 +19,7 @@ export class App extends React.Component {
         return (
             <div className='app'>
                 <FullScreenImage image={files[selectedFileIndex]}/>
+                <ActionBar />
             </div>
         )
     }

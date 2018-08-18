@@ -36,3 +36,8 @@ This isn't intuitive so best to review it. In particular, When `remote.require('
 This app's main process entry point is `node/main.js`, so modules required with remote would be relative to that.
 
 https://electronjs.org/docs/api/remote
+
+## Where I Got Resources
+
+* OpenSans font: https://fonts.google.com/specimen/Open+Sans
+* Delete Icon: https://thenounproject.com/icon/1891237/
