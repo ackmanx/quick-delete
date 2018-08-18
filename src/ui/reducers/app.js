@@ -25,7 +25,10 @@ export default function app(state = {}, action = {}) {
         case Types.MARK_TO_DELETE:
             const listToDelete = state.listToDelete.slice()
 
-            if (!listToDelete.includes(action.imagePathToDelete)) {
+            if (listToDelete.includes(action.imagePathToDelete)) {
+                listToDelete.splice(listToDelete.indexOf(action.imagePathToDelete), 1)
+            }
+            else {
                 listToDelete.push(action.imagePathToDelete)
             }
 
