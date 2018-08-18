@@ -1,9 +1,9 @@
-import * as ActionTypes from '../actions/action-types'
+import {SET_FILES} from '../actions/action-types'
 
 export default function files(state = [], action = {}) {
 
     switch (action.type) {
-        case ActionTypes.SET_FILES:
+        case SET_FILES:
             return action.files
     }
 

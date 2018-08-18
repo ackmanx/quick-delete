@@ -1,10 +1,10 @@
 import './app.less'
 import React from 'react'
 import {connect} from 'react-redux'
-import * as ActionTypes from '../actions/action-types'
 import {getFiles} from '../actions/get-files'
 import {FullScreenImage} from './full-screen-image'
 import {ActionBar} from './action-bar'
+import {MARK_TO_DELETE, SET_SOURCE_PATH} from '../actions/action-types'
 
 export class App extends React.Component {
 
@@ -41,10 +41,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setSourcePath: sourcePath => {
-        dispatch({type: ActionTypes.SET_SOURCE_PATH, sourcePath})
+        dispatch({type: SET_SOURCE_PATH, sourcePath})
         dispatch(getFiles(sourcePath))
     },
-    handleMarkDelete: (imagePathToDelete) => dispatch({type: ActionTypes.MARK_TO_DELETE, imagePathToDelete}),
+    handleMarkDelete: () => dispatch({type: MARK_TO_DELETE}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
