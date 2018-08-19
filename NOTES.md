@@ -2,12 +2,8 @@
 
 * Auto load Camera Uploads folder in Dropbox
 
-* Flag a photo using keyboard key x to mark delete
-    * X photos are obvious that they were rejected
+* Provide visual feedback when at end of list of files (like a side charm blink)
 
-* Flag a photo using keyboard key k to mark keep
-    * K photos are obvious that they're being kept
+* Provide method for user to send list of files to delete to node
 
-* Have action bar at bottom that's transparent with flag options
-
-* When removing marked images, make sure there's no way to mark an image (like via index?) and then cause the file list to refresh. This would cause the indexes to change and wrong files get deleted. Maybe just mark the filename.
+* Actually delete the files
