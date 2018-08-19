@@ -44,7 +44,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch({type: SET_SOURCE_PATH, sourcePath})
         dispatch(getFiles(sourcePath))
     },
-    handleMarkDelete: () => dispatch({type: MARK_TO_DELETE}),
+    handleMarkDelete: (imagePathToDelete) => dispatch({type: MARK_TO_DELETE, imagePathToDelete}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
