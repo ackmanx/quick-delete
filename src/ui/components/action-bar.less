@@ -1,3 +1,17 @@
+.actionButton() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: black;
+    opacity: .8;
+
+    &:hover {
+        background-color: #333;
+        opacity: 1;
+    }
+}
+
 .action-bar {
     position: absolute;
     bottom: 0;
@@ -6,19 +20,39 @@
     height: 100px;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
-
     cursor: pointer;
-
-    background-color: black;
-    opacity: .8;
-
-    &--marked {
-        background-color: red;
-    }
 
     img {
         width: 50px;
+    }
+
+    .choose-folder {
+        .actionButton();
+
+        width: 100px;
+        height: 100px;
+    }
+
+    .mark-for-delete {
+        .actionButton();
+
+        height: 100px;
+        width: calc(100% - 200px);
+
+        &--marked {
+            background-color: red;
+
+            &:hover {
+                //The hover of the button takes precedence over color of --marked, so apply a hover here to win
+                background-color: red;
+            }
+        }
+    }
+
+    .apply-deletes {
+        .actionButton();
+
+        width: 100px;
+        height: 100px;
     }
 }
