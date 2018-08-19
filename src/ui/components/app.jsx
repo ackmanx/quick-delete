@@ -5,6 +5,7 @@ import {getFiles} from '../actions/get-files'
 import {FullScreenImage} from './full-screen-image'
 import {ActionBar} from './action-bar'
 import {MARK_TO_DELETE, SET_SOURCE_PATH} from '../actions/action-types'
+import markDeleteAction from '../actions/mark-delete'
 
 export class App extends React.Component {
 
@@ -44,7 +45,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch({type: SET_SOURCE_PATH, sourcePath})
         dispatch(getFiles(sourcePath))
     },
-    handleMarkDelete: (imagePathToDelete) => dispatch({type: MARK_TO_DELETE, imagePathToDelete}),
+    handleMarkDelete: () => dispatch(markDeleteAction()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
