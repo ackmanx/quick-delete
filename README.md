@@ -40,4 +40,6 @@ https://electronjs.org/docs/api/remote
 ## Where I Got Resources
 
 * OpenSans font: https://fonts.google.com/specimen/Open+Sans
-* Delete Icon: https://thenounproject.com/icon/1891237/
+* Folder Icon: https://thenounproject.com/icon/1894634/
+* Checkmark Icon: https://thenounproject.com/icon/1126057/
+* Trash Icon: https://thenounproject.com/icon/1392360/

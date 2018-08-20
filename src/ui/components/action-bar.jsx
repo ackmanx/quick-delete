@@ -1,6 +1,8 @@
 import './action-bar.less'
 import React from 'react'
-import deleteIcon from '../resources/delete-icon.png'
+import folderIcon from '../resources/folder-icon.png'
+import checkmarkIcon from '../resources/checkmark-icon.png'
+import trashIcon from '../resources/trash-icon.png'
 
 export class ActionBar extends React.Component {
 
@@ -12,14 +14,14 @@ export class ActionBar extends React.Component {
         return (
             <div className='action-bar'>
                 <div className='choose-folder'>
-                    <img src={deleteIcon}/>
+                    <img src={folderIcon}/>
                 </div>
                 <div className={`mark-for-delete ${markedForDelete ? 'mark-for-delete--marked' : ''}`}
                      onClick={() => handleMarkDelete(imagePath)}>
-                    <img src={deleteIcon}/>
+                    <img src={checkmarkIcon}/>
                 </div>
                 <div className='apply-deletes'>
-                    <img src={deleteIcon}/>
+                    <img src={trashIcon}/>
                 </div>
             </div>
         )
