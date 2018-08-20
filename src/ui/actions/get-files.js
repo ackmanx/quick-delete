@@ -1,12 +1,12 @@
 import {SET_FILES} from './action-types'
+import {getBackendModule} from '../utils'
 
 export const getFiles = sourcePath => {
-    //This imports the specified node module, so you can interact with the "backend" from here
-    const file = require('electron').remote.require('./file')
+    const node_file = getBackendModule('./file')
 
     return {
         type: SET_FILES,
-        files: file.getImageFiles(sourcePath)
+        files: node_file.getImageFiles(sourcePath)
     }
 
 }

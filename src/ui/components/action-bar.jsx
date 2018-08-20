@@ -9,7 +9,7 @@ export class ActionBar extends React.Component {
     static defaultProps = {}
 
     render() {
-        const {imagePath, markedForDelete, handleMarkDelete} = this.props
+        const {imagePath, markedForDelete, handleMarkDelete, handleStartDeletes} = this.props
 
         return (
             <div className='action-bar'>
@@ -20,7 +20,8 @@ export class ActionBar extends React.Component {
                      onClick={() => handleMarkDelete(imagePath)}>
                     <img src={checkmarkIcon}/>
                 </div>
-                <div className='apply-deletes'>
+                <div className='apply-deletes'
+                    onClick={handleStartDeletes}>
                     <img src={trashIcon}/>
                 </div>
             </div>

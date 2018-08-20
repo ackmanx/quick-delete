@@ -24,3 +24,7 @@ exports.getImageFiles = sourceDir => {
 
     return imagesAndFolders
 }
+
+exports.startDeletes = listOfPaths => {
+    console.log('giggity, i did it', listOfPaths)
+}

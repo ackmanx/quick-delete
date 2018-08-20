@@ -4,8 +4,9 @@ import {connect} from 'react-redux'
 import {getFiles} from '../actions/get-files'
 import {FullScreenImage} from './full-screen-image'
 import {ActionBar} from './action-bar'
-import {MARK_TO_DELETE, SET_SOURCE_PATH} from '../actions/action-types'
+import {SET_SOURCE_PATH} from '../actions/action-types'
 import markDeleteAction from '../actions/mark-delete'
+import startDeletesAction from '../actions/start-deletes'
 
 export class App extends React.Component {
 
@@ -20,7 +21,7 @@ export class App extends React.Component {
     }
 
     render() {
-        const {currentImage, handleMarkDelete, listToDelete} = this.props
+        const {currentImage, listToDelete, handleMarkDelete, handleStartDeletes} = this.props
 
         const markedForDelete = listToDelete.includes(currentImage.srcOriginal)
 
@@ -29,6 +30,7 @@ export class App extends React.Component {
                 <FullScreenImage image={currentImage}/>
                 <ActionBar imagePath={currentImage.srcOriginal}
                            markedForDelete={markedForDelete}
+                           handleStartDeletes={handleStartDeletes}
                            handleMarkDelete={handleMarkDelete}/>
             </div>
         )
@@ -46,6 +48,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(getFiles(sourcePath))
     },
     handleMarkDelete: () => dispatch(markDeleteAction()),
+    handleStartDeletes: () => dispatch(startDeletesAction()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
