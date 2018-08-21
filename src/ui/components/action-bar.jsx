@@ -14,7 +14,8 @@ export class ActionBar extends React.Component {
         return (
             <div className='action-bar'>
                 <div className='choose-folder'>
-                    <img src={folderIcon}/>
+                    {/* todo: move this to menu */}
+                    {/*<img src={folderIcon}/>*/}
                 </div>
                 <div className={`mark-for-delete ${markedForDelete ? 'mark-for-delete--marked' : ''}`}
                      onClick={() => handleMarkDelete(imagePath)}>
@@ -22,7 +23,8 @@ export class ActionBar extends React.Component {
                 </div>
                 <div className='apply-deletes'
                     onClick={handleStartDeletes}>
-                    <img src={trashIcon}/>
+                    {/* todo: move this to menu */}
+                    {/*<img src={trashIcon}/>*/}
                 </div>
             </div>
         )

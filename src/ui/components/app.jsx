@@ -7,6 +7,7 @@ import {ActionBar} from './action-bar'
 import {SET_SOURCE_PATH} from '../actions/action-types'
 import markDeleteAction from '../actions/mark-delete'
 import startDeletesAction from '../actions/start-deletes'
+import {InfoBar} from './info-bar'
 
 export class App extends React.Component {
 
@@ -21,12 +22,13 @@ export class App extends React.Component {
     }
 
     render() {
-        const {currentImage, listToDelete, handleMarkDelete, handleStartDeletes} = this.props
+        const {currentImage, listToDelete, selectedFileIndex, totalFilesCount, handleMarkDelete, handleStartDeletes} = this.props
 
         const markedForDelete = listToDelete.includes(currentImage.srcOriginal)
 
         return (
             <div className='app'>
+                <InfoBar selectedFileIndex={selectedFileIndex} image={currentImage} totalFilesCount={totalFilesCount}/>
                 <FullScreenImage image={currentImage}/>
                 <ActionBar imagePath={currentImage.srcOriginal}
                            markedForDelete={markedForDelete}
@@ -38,6 +40,8 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    selectedFileIndex: state.app.selectedFileIndex,
+    totalFilesCount: state.files.length,
     currentImage: state.files[state.app.selectedFileIndex],
     listToDelete: state.app.listToDelete,
 })

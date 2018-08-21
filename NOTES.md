@@ -16,7 +16,7 @@
 
 * Actually delete the files
 
-* Show filename of current image at the top or something
+* 2 column mode to see image side-by-side
 
 # User Testing
 

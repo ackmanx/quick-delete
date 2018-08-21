@@ -1,0 +1,50 @@
+@height: 50px;
+
+.section() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: black;
+    opacity: .8;
+}
+
+.info-bar {
+    position: absolute;
+    width: 100vw;
+    height: @height;
+
+    display: flex;
+    cursor: default;
+
+    color: white;
+    font-size: 15px;
+
+    img {
+        width: 25px;
+    }
+
+    .count {
+        .section();
+        height: @height;
+        width: 100px;
+    }
+
+    .path {
+        .section();
+        height: @height;
+        width: calc(100% - 200px);
+    }
+
+    .menu {
+        .section();
+        width: 100px;
+        height: @height;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #333;
+            opacity: 1;
+        }
+    }
+}
