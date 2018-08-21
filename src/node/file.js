@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const sizeOf = require('image-size')
+const del = require('del')
 
 exports.getImageFiles = sourceDir => {
     const imagesAndFolders = []
@@ -26,5 +27,6 @@ exports.getImageFiles = sourceDir => {
 }
 
 exports.startDeletes = listOfPaths => {
-    console.log('giggity, i did it', listOfPaths)
+    //Returns array of deleted files
+    return del.sync(listOfPaths, {dryRun: true})
 }

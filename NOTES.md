@@ -2,11 +2,21 @@
 
 * Auto load Camera Uploads folder in Dropbox
 
+* After auto load for my folder, prompt once to select a folder to use and save the location
+    * Allow user to change location by clicking the folder icon
+
 * Provide visual feedback when at end of list of files (like a side charm blink)
 
 * Provide method for user to send list of files to delete to node
+    * Open modal on click of trash can to confirm
+    * Display spinner after confirming
+    * If any images failed to delete, report those ones
+        * How to know if any image didn't delete? How to report errors to the UI?
+    * Show a notification that n images were deleted
 
 * Actually delete the files
+
+* Show filename of current image at the top or something
 
 # User Testing
 
