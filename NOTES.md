@@ -18,6 +18,9 @@
 
 * 2 column mode to see image side-by-side
 
+* Create menu
+    * Move action icons to menu
+
 # User Testing
 
 _What do you think happens in this program?_  
