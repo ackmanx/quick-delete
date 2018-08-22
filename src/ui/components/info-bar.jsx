@@ -32,15 +32,18 @@ export class InfoBar extends React.Component {
                 <div className={`menu-button ${openMenu ? 'opened' : ''}`}
                      onClick={() => this.setState({openMenu: !openMenu})}>
                     <img src={menuIcon}/>
+
                     {openMenu && (
                         <div className='menu'>
                             <ul>
-                                <li>Open Folder</li>
-                                <li>Delete All Selected</li>
+                                <li onClick={(e) => e.stopPropagation()}>Open Folder</li>
+                                <li onClick={(e) => e.stopPropagation()}>Delete All Selected</li>
                             </ul>
                         </div>
                     )}
                 </div>
+
+                {openMenu && <div className='menu-overlay' onClick={() => this.setState({openMenu: false})}/>}
             </div>
         )
     }

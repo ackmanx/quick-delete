@@ -49,6 +49,7 @@
         &.opened {
             background-color: #333;
             opacity: 1;
+            z-index: 20;
         }
     }
 
@@ -68,5 +69,18 @@
                 background-color: #555;
             }
         }
+    }
+
+    //This is to trap clicks, so the menu closes whenever the user clicks outside of the menu
+    .menu-overlay {
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
     }
 }
