@@ -9,6 +9,7 @@ export class InfoBar extends React.Component {
         selectedFileIndex: PropTypes.number,
         totalFilesCount: PropTypes.number,
         image: PropTypes.object,
+        handleStartDeletes: PropTypes.func,
     }
 
     static defaultProps = {}
@@ -17,8 +18,13 @@ export class InfoBar extends React.Component {
         openMenu: false,
     }
 
+    constructor(props) {
+        super(props)
+        this.onClickDeleteSelected = this.onClickDeleteSelected.bind(this)
+    }
+
     render() {
-        const {selectedFileIndex, totalFilesCount, image} = this.props
+        const {selectedFileIndex, totalFilesCount, image, handleStartDeletes} = this.props
         const openMenu = this.state.openMenu
 
         return (
@@ -37,7 +43,7 @@ export class InfoBar extends React.Component {
                         <div className='menu'>
                             <ul>
                                 <li onClick={(e) => e.stopPropagation()}>Open Folder</li>
-                                <li onClick={(e) => e.stopPropagation()}>Delete All Selected</li>
+                                <li onClick={this.onClickDeleteSelected}>Delete All Selected</li>
                             </ul>
                         </div>
                     )}
@@ -46,5 +52,10 @@ export class InfoBar extends React.Component {
                 {openMenu && <div className='menu-overlay' onClick={() => this.setState({openMenu: false})}/>}
             </div>
         )
+    }
+
+    onClickDeleteSelected(e) {
+        e.stopPropagation()
+        this.props.handleStartDeletes()
     }
 }

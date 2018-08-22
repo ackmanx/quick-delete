@@ -28,11 +28,13 @@ export class App extends React.Component {
 
         return (
             <div className='app'>
-                <InfoBar selectedFileIndex={selectedFileIndex} image={currentImage} totalFilesCount={totalFilesCount}/>
+                <InfoBar selectedFileIndex={selectedFileIndex}
+                         image={currentImage}
+                         totalFilesCount={totalFilesCount}
+                         handleStartDeletes={handleStartDeletes}/>
                 <FullScreenImage image={currentImage}/>
                 <ActionBar imagePath={currentImage.srcOriginal}
                            markedForDelete={markedForDelete}
-                           handleStartDeletes={handleStartDeletes}
                            handleMarkDelete={handleMarkDelete}/>
             </div>
         )
