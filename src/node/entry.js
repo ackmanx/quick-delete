@@ -11,9 +11,6 @@ let mainWindow
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-        //Hide the title bar to create a full-bleed experience
-        //This will really piss off the user, but hey I'm the only user, so no-one cares about me
-        frame: false,
         minWidth: 300,
         minHeight: 400,
     })
