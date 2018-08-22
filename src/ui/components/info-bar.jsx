@@ -20,11 +20,14 @@ export class InfoBar extends React.Component {
 
     constructor(props) {
         super(props)
+        this.closeMenu = this.closeMenu.bind(this)
+        this.toggleMenu = this.toggleMenu.bind(this)
+        this.onClickOpenFolder = this.onClickOpenFolder.bind(this)
         this.onClickDeleteSelected = this.onClickDeleteSelected.bind(this)
     }
 
     render() {
-        const {selectedFileIndex, totalFilesCount, image, handleStartDeletes} = this.props
+        const {selectedFileIndex, totalFilesCount, image} = this.props
         const openMenu = this.state.openMenu
 
         return (
@@ -36,26 +39,40 @@ export class InfoBar extends React.Component {
                     {image.srcOriginal}
                 </div>
                 <div className={`menu-button ${openMenu ? 'opened' : ''}`}
-                     onClick={() => this.setState({openMenu: !openMenu})}>
+                     onClick={this.toggleMenu}>
                     <img src={menuIcon}/>
 
                     {openMenu && (
                         <div className='menu'>
                             <ul>
-                                <li onClick={(e) => e.stopPropagation()}>Open Folder</li>
+                                <li onClick={this.onClickOpenFolder}>Open Folder</li>
                                 <li onClick={this.onClickDeleteSelected}>Delete All Selected</li>
                             </ul>
                         </div>
                     )}
                 </div>
 
-                {openMenu && <div className='menu-overlay' onClick={() => this.setState({openMenu: false})}/>}
+                {openMenu && <div className='menu-overlay' onClick={this.closeMenu}/>}
             </div>
         )
     }
 
+    toggleMenu() {
+        this.setState({openMenu: !this.state.openMenu})
+    }
+
+    closeMenu() {
+        this.setState({openMenu: false})
+    }
+
+    onClickOpenFolder(e) {
+        e.stopPropagation()
+        this.closeMenu()
+    }
+
     onClickDeleteSelected(e) {
         e.stopPropagation()
+        this.closeMenu()
         this.props.handleStartDeletes()
     }
 }
