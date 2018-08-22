@@ -15,7 +15,7 @@
     height: @height;
 
     display: flex;
-    cursor: default;
+    cursor: default; //so cursor doesn't change when hovering over text
 
     color: white;
     font-size: 15px;
@@ -36,15 +36,37 @@
         width: calc(100% - 200px);
     }
 
-    .menu {
+    .menu-button {
         .section();
         width: 100px;
         height: @height;
         cursor: pointer;
 
-        &:hover {
+        //This is relative, so that the menu can be absolute to its position
+        position: relative;
+
+        &:hover,
+        &.opened {
             background-color: #333;
             opacity: 1;
+        }
+    }
+
+    .menu {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        padding: 7px 0;
+        background-color: #333;
+        font-size: 18px;
+
+        li {
+            padding: 7px 0 7px 20px;
+
+            &:hover {
+                background-color: #555;
+            }
         }
     }
 }

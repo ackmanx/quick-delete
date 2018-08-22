@@ -13,8 +13,13 @@ export class InfoBar extends React.Component {
 
     static defaultProps = {}
 
+    state = {
+        openMenu: false,
+    }
+
     render() {
         const {selectedFileIndex, totalFilesCount, image} = this.props
+        const openMenu = this.state.openMenu
 
         return (
             <div className='info-bar'>
@@ -24,8 +29,17 @@ export class InfoBar extends React.Component {
                 <div className='path'>
                     {image.srcOriginal}
                 </div>
-                <div className='menu'>
+                <div className={`menu-button ${openMenu ? 'opened' : ''}`}
+                     onClick={() => this.setState({openMenu: !openMenu})}>
                     <img src={menuIcon}/>
+                    {openMenu && (
+                        <div className='menu'>
+                            <ul>
+                                <li>Open Folder</li>
+                                <li>Delete All Selected</li>
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
         )
