@@ -1,7 +1,7 @@
 import './info-bar.less'
 import React from 'react'
 import PropTypes from 'prop-types'
-import menuIcon from '../resources/menu-icon.png'
+import {Menu} from './menu'
 
 export class InfoBar extends React.Component {
 
@@ -14,21 +14,8 @@ export class InfoBar extends React.Component {
 
     static defaultProps = {}
 
-    state = {
-        openMenu: false,
-    }
-
-    constructor(props) {
-        super(props)
-        this.closeMenu = this.closeMenu.bind(this)
-        this.toggleMenu = this.toggleMenu.bind(this)
-        this.onClickOpenFolder = this.onClickOpenFolder.bind(this)
-        this.onClickDeleteSelected = this.onClickDeleteSelected.bind(this)
-    }
-
     render() {
-        const {selectedFileIndex, totalFilesCount, image} = this.props
-        const openMenu = this.state.openMenu
+        const {selectedFileIndex, totalFilesCount, image, handleStartDeletes} = this.props
 
         return (
             <div className='info-bar'>
@@ -38,41 +25,8 @@ export class InfoBar extends React.Component {
                 <div className='path'>
                     {image.srcOriginal}
                 </div>
-                <div className={`menu-button ${openMenu ? 'opened' : ''}`}
-                     onClick={this.toggleMenu}>
-                    <img src={menuIcon}/>
-
-                    {openMenu && (
-                        <div className='menu'>
-                            <ul>
-                                <li onClick={this.onClickOpenFolder}>Open Folder</li>
-                                <li onClick={this.onClickDeleteSelected}>Delete All Selected</li>
-                            </ul>
-                        </div>
-                    )}
-                </div>
-
-                {openMenu && <div className='menu-overlay' onClick={this.closeMenu}/>}
+                <Menu handleStartDeletes={handleStartDeletes}/>
             </div>
         )
-    }
-
-    toggleMenu() {
-        this.setState({openMenu: !this.state.openMenu})
-    }
-
-    closeMenu() {
-        this.setState({openMenu: false})
-    }
-
-    onClickOpenFolder(e) {
-        e.stopPropagation()
-        this.closeMenu()
-    }
-
-    onClickDeleteSelected(e) {
-        e.stopPropagation()
-        this.closeMenu()
-        this.props.handleStartDeletes()
     }
 }

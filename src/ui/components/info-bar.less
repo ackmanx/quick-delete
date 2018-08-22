@@ -20,10 +20,6 @@
     color: white;
     font-size: 15px;
 
-    img {
-        width: 25px;
-    }
-
     .count {
         .section();
         height: @height;
@@ -36,51 +32,5 @@
         width: calc(100% - 200px);
     }
 
-    .menu-button {
-        .section();
-        width: 100px;
-        height: @height;
-        cursor: pointer;
-
-        //This is relative, so that the menu can be absolute to its position
-        position: relative;
-
-        &:hover,
-        &.opened {
-            background-color: #333;
-            opacity: 1;
-            z-index: 20;
-        }
-    }
-
-    .menu {
-        position: absolute;
-        top: 50px;
-        right: 0;
-        width: 200px;
-        padding: 7px 0;
-        background-color: #333;
-        font-size: 18px;
-
-        li {
-            padding: 7px 0 7px 20px;
-
-            &:hover {
-                background-color: #555;
-            }
-        }
-    }
-
-    //This is to trap clicks, so the menu closes whenever the user clicks outside of the menu
-    .menu-overlay {
-        background-color: transparent;
-        position: absolute;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 10;
-    }
+    //Menu's sizing is defined in its own LESS file
 }
