@@ -18,7 +18,8 @@ export class App extends React.Component {
 
     constructor(props) {
         super()
-        props.setSourcePath('/Volumes/Storage/Dropbox/Code/quick-delete/src/test/images')
+        const utils = require('electron').remote.require('./utils')
+        props.setSourcePath(utils.getTestDataDirectory())
     }
 
     render() {
