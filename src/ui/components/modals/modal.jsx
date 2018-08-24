@@ -1,5 +1,6 @@
 import './modal.less'
 import React from 'react'
+
 // import PropTypes from 'prop-types'
 
 export class Modal extends React.Component {
@@ -13,6 +14,9 @@ export class Modal extends React.Component {
 
         return (
             <div className='modal'>
+                <div className='box'>
+                    {this.props.children}
+                </div>
             </div>
         )
     }

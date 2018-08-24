@@ -14,7 +14,9 @@ export class ConfirmDelete extends React.Component {
 
         return (
             <div className='confirm-delete'>
-                <Modal/>
+                <Modal>
+                    <h1>hellooooooooo nurse</h1>
+                </Modal>
             </div>
         )
     }
