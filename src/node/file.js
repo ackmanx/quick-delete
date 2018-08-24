@@ -28,5 +28,5 @@ exports.getImageFiles = sourceDir => {
 
 exports.startDeletes = listOfPaths => {
     //Returns array of deleted files
-    return del.sync(listOfPaths, {dryRun: true})
+    return del.sync(listOfPaths, {force: true})
 }

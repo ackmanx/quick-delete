@@ -17,6 +17,8 @@
 
 * 2 column mode to see image side-by-side
 
+* No-results page for when selected folder has no photos
+
 
 # QA Testing Scenarios
 
@@ -27,6 +29,8 @@
 * Try to delete a file you don't have permission to delete
 
 * Try to delete a file that doesn't exist anymore
+
+* View a folder without any photos but has other files
 
 
 # User Testing
