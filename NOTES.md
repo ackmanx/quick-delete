@@ -23,6 +23,14 @@
 
 * No-results page for when selected folder has no photos
 
+## Tech Debt
+
+* Should I make other components connected?
+
+* Should I create a color pallete?
+
+* Make getFiles a thunk so it can get the selected folder automatically
+
 
 # QA Testing Scenarios
 
