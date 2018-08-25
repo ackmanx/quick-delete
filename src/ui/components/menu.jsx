@@ -1,14 +1,11 @@
 import './menu.less'
 import React from 'react'
-import PropTypes from 'prop-types'
 import menuIcon from '../resources/menu-icon.png'
-import {ConfirmDelete} from './modals/confirm-delete'
+import ConnectedConfirmDelete from './modals/confirm-delete'
 
 export class Menu extends React.Component {
 
-    static propTypes = {
-        handleStartDeletes: PropTypes.func,
-    }
+    static propTypes = {}
 
     static defaultProps = {}
 
@@ -44,7 +41,7 @@ export class Menu extends React.Component {
                     )}
                 </div>
 
-                {confirmDelete && <ConfirmDelete/>}
+                {confirmDelete && <ConnectedConfirmDelete />}
 
                 {openMenu && <div className='overlay' onClick={this.closeMenu}/>}
             </div>
@@ -68,6 +65,5 @@ export class Menu extends React.Component {
         e.stopPropagation()
         this.closeMenu()
         this.setState({confirmDelete: true})
-        this.props.handleStartDeletes()
     }
 }
