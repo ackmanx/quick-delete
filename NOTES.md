@@ -2,11 +2,8 @@
 
 ## MVP
 
-* Actually delete the files
-
 * Provide method for user to send list of files to delete to node
     * Display "Are you sure" in modal with yes/no buttons
-    * Success of delete causes app refresh of folder source
 
 ## V2
 
