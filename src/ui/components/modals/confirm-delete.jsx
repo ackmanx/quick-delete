@@ -18,7 +18,7 @@ export class ConfirmDelete extends React.Component {
 
         return (
             <div className='confirm-delete'>
-                <Modal>
+                <Modal onClose={this.props.onClose}>
                     <h1>Are you sure you want to delete these photos?</h1>
                     <ul>
                         {listToDelete.map(photoPath => <li key={photoPath}>{photoPath}</li>)}

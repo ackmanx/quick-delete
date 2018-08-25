@@ -16,8 +16,9 @@ export default class Menu extends React.Component {
 
     constructor(props) {
         super(props)
-        this.closeMenu = this.closeMenu.bind(this)
         this.toggleMenu = this.toggleMenu.bind(this)
+        this.closeMenu = this.closeMenu.bind(this)
+        this.toggleConfirmDelete = this.toggleConfirmDelete.bind(this)
         this.onClickOpenFolder = this.onClickOpenFolder.bind(this)
         this.onClickDeleteSelected = this.onClickDeleteSelected.bind(this)
     }
@@ -41,7 +42,7 @@ export default class Menu extends React.Component {
                     )}
                 </div>
 
-                {confirmDelete && <ConnectedConfirmDelete/>}
+                {confirmDelete && <ConnectedConfirmDelete onClose={this.toggleConfirmDelete}/>}
 
                 {openMenu && <div className='overlay' onClick={this.closeMenu}/>}
             </div>
@@ -56,6 +57,10 @@ export default class Menu extends React.Component {
         this.setState({openMenu: false})
     }
 
+    toggleConfirmDelete() {
+        this.setState({confirmDelete: !this.state.confirmDelete})
+    }
+
     onClickOpenFolder(e) {
         e.stopPropagation()
         this.closeMenu()
@@ -64,6 +69,6 @@ export default class Menu extends React.Component {
     onClickDeleteSelected(e) {
         e.stopPropagation()
         this.closeMenu()
-        this.setState({confirmDelete: true})
+        this.toggleConfirmDelete()
     }
 }
