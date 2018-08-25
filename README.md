@@ -32,6 +32,5 @@ Don't forget to `npm config set save-exact true` so npm doesn't add those useles
 ## Where I Got Resources
 
 * OpenSans font: https://fonts.google.com/specimen/Open+Sans
-* Folder Icon: https://thenounproject.com/icon/1894634/
 * Checkmark Icon: https://thenounproject.com/icon/1126057/
-* Trash Icon: https://thenounproject.com/icon/1392360/
+* Menu Icon: https://thenounproject.com/icon/174959/

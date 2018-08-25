@@ -11,12 +11,12 @@ export default class ActionBar extends React.Component {
 
         return (
             <div className='action-bar'>
-                <div className='choose-folder'></div>
+                <div className='unused-button'/>
                 <div className={`mark-for-delete ${markedForDelete ? 'mark-for-delete--marked' : ''}`}
                      onClick={() => handleMarkDelete(imagePath)}>
                     <img src={checkmarkIcon}/>
                 </div>
-                <div className='apply-deletes'></div>
+                <div className='unused-button'/>
             </div>
         )
     }
