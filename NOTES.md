@@ -23,8 +23,6 @@
 
 * No-results page for when selected folder has no photos
 
-* Sublte animations
-
 
 ## Tech Debt
 

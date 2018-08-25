@@ -1,4 +1,5 @@
 @import (reference) './info-bar';
+@import (reference) '../globals';
 
 .menu-container {
     img {
@@ -7,6 +8,7 @@
 
     .button {
         .section();
+        .transition();
         width: 100px;
         height: @height;
         cursor: pointer;
@@ -32,6 +34,7 @@
         font-size: 18px;
 
         li {
+            .transition();
             padding: 7px 0 7px 20px;
 
             &:hover {
