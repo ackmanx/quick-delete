@@ -1,7 +1,7 @@
 import './confirm-delete.less'
 import React from 'react'
 import {connect} from 'react-redux'
-import {Modal} from './modal'
+import Modal from './modal'
 import PropTypes from 'prop-types'
 import startDeletesAction from '../../actions/start-deletes'
 

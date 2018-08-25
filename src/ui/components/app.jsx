@@ -1,12 +1,12 @@
 import './app.less'
 import React from 'react'
 import {connect} from 'react-redux'
-import {getFiles} from '../actions/get-files'
-import {FullScreenImage} from './full-screen-image'
-import {ActionBar} from './action-bar'
+import getFiles from '../actions/get-files'
+import FullScreenImage from './full-screen-image'
+import ActionBar from './action-bar'
 import {SET_SOURCE_PATH} from '../actions/action-types'
 import markDeleteAction from '../actions/mark-delete'
-import {InfoBar} from './info-bar'
+import InfoBar from './info-bar'
 
 export class App extends React.Component {
 

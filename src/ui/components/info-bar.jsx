@@ -1,9 +1,9 @@
 import './info-bar.less'
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Menu} from './menu'
+import Menu from './menu'
 
-export class InfoBar extends React.Component {
+export default class InfoBar extends React.Component {
 
     static propTypes = {
         selectedFileIndex: PropTypes.number,

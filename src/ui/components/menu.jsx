@@ -3,7 +3,7 @@ import React from 'react'
 import menuIcon from '../resources/menu-icon.png'
 import ConnectedConfirmDelete from './modals/confirm-delete'
 
-export class Menu extends React.Component {
+export default class Menu extends React.Component {
 
     static propTypes = {}
 
@@ -41,7 +41,7 @@ export class Menu extends React.Component {
                     )}
                 </div>
 
-                {confirmDelete && <ConnectedConfirmDelete />}
+                {confirmDelete && <ConnectedConfirmDelete/>}
 
                 {openMenu && <div className='overlay' onClick={this.closeMenu}/>}
             </div>

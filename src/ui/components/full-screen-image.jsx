@@ -1,7 +1,7 @@
 import './full-screen-image.less'
 import React from 'react'
 
-export class FullScreenImage extends React.Component {
+export default class FullScreenImage extends React.Component {
 
     static defaultProps = {
         image: {}
