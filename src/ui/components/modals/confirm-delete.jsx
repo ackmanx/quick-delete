@@ -31,8 +31,8 @@ export class ConfirmDelete extends React.Component {
                         {listToDelete.map(photoPath => <li key={photoPath}>{photoPath}</li>)}
                     </ul>
                     <div className='button-container'>
-                        <button onClick={this.onClickButtonYes}>Yep!</button>
-                        <button onClick={this.props.onClose}>Nope!</button>
+                        <button className='primary-button' onClick={this.onClickButtonYes}>Yep!</button>
+                        <button className='secondary-button' onClick={this.props.onClose}>Nope</button>
                     </div>
                 </Modal>
             </div>
