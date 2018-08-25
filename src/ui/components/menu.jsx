@@ -1,13 +1,18 @@
 import './menu.less'
 import React from 'react'
+import PropTypes from 'prop-types'
 import menuIcon from '../resources/menu-icon.png'
 import ConnectedConfirmDelete from './modals/confirm-delete'
 
 export default class Menu extends React.Component {
 
-    static propTypes = {}
+    static propTypes = {
+        listToDelete: PropTypes.array,
+    }
 
-    static defaultProps = {}
+    static defaultProps = {
+        listToDelete: []
+    }
 
     state = {
         confirmDelete: false,
@@ -24,7 +29,10 @@ export default class Menu extends React.Component {
     }
 
     render() {
+        const {listToDelete} = this.props
         const {confirmDelete, openMenu} = this.state
+
+        const deleteDisabled = listToDelete.length === 0
 
         return (
             <div className='menu-container'>
@@ -36,7 +44,9 @@ export default class Menu extends React.Component {
                         <div className='menu'>
                             <ul>
                                 <li onClick={this.onClickOpenFolder}>Open Folder</li>
-                                <li onClick={this.onClickDeleteSelected}>Delete All Selected</li>
+                                <li className={deleteDisabled ? 'disabled' : ''} onClick={(e) => this.onClickDeleteSelected(e, deleteDisabled)}>
+                                    Delete All Selected
+                                </li>
                             </ul>
                         </div>
                     )}
@@ -66,9 +76,12 @@ export default class Menu extends React.Component {
         this.closeMenu()
     }
 
-    onClickDeleteSelected(e) {
+    onClickDeleteSelected(e, deleteDisabled) {
         e.stopPropagation()
-        this.closeMenu()
-        this.toggleConfirmDelete()
+
+        if (!deleteDisabled) {
+            this.closeMenu()
+            this.toggleConfirmDelete()
+        }
     }
 }

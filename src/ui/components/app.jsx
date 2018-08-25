@@ -30,6 +30,7 @@ export class App extends React.Component {
             <div className='app'>
                 <InfoBar selectedFileIndex={selectedFileIndex}
                          image={currentImage}
+                         listToDelete={listToDelete}
                          totalFilesCount={totalFilesCount}/>
                 <FullScreenImage image={currentImage}/>
                 <ActionBar imagePath={currentImage.srcOriginal}

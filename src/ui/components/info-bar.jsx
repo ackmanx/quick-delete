@@ -9,12 +9,13 @@ export default class InfoBar extends React.Component {
         selectedFileIndex: PropTypes.number,
         totalFilesCount: PropTypes.number,
         image: PropTypes.object,
+        listToDelete: PropTypes.array,
     }
 
     static defaultProps = {}
 
     render() {
-        const {selectedFileIndex, totalFilesCount, image} = this.props
+        const {selectedFileIndex, listToDelete, totalFilesCount, image} = this.props
 
         return (
             <div className='info-bar'>
@@ -24,7 +25,7 @@ export default class InfoBar extends React.Component {
                 <div className='path'>
                     {image.srcOriginal}
                 </div>
-                <Menu/>
+                <Menu listToDelete={listToDelete}/>
             </div>
         )
     }
