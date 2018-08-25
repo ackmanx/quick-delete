@@ -1,5 +1,15 @@
 # Basic Functionality
 
+## MVP
+
+* Actually delete the files
+
+* Provide method for user to send list of files to delete to node
+    * Display "Are you sure" in modal with yes/no buttons
+    * Success of delete causes app refresh of folder source
+
+## V2
+
 * Prompt once to select a folder to use and save the location
 
 * Allow user to change folder source
@@ -7,13 +17,10 @@
     * Refresh folder source after yes/no
 
 * Provide method for user to send list of files to delete to node
-    * Display "Are you sure" in modal with yes/no buttons
     * Display spinner in modal while waiting
     * Show results in modal of how many deleted and how many failed
     * If any images failed to delete, report the filename
-    * Dismiss of modal causes app refresh of folder source
 
-* Actually delete the files
 
 * 2 column mode to see image side-by-side
 
