@@ -8,11 +8,13 @@
         "electron": "electron .",
         "webpack": "webpack --watch --progress --mode=development",
         "webpack-release": "webpack --mode=production",
+        "lint": "eslint --ext .js --ext .jsx src",
         "test": "jest --config=src/test/jest-config.js"
     },
     "dependencies": {
         "babel-polyfill": "6.26.0",
         "del": "3.0.0",
+        "eslint-plugin-react": "7.11.1",
         "image-size": "0.6.3",
         "mousetrap": "1.6.2",
         "normalize.css": "8.0.0",
@@ -25,6 +27,7 @@
     },
     "devDependencies": {
         "babel-core": "6.26.3",
+        "babel-eslint": "8.2.6",
         "babel-loader": "7.1.5",
         "babel-plugin-transform-class-properties": "6.24.1",
         "babel-plugin-transform-object-rest-spread": "6.26.0",
@@ -36,6 +39,7 @@
         "electron-devtools-installer": "2.2.4",
         "enzyme": "3.4.1",
         "enzyme-adapter-react-16": "1.2.0",
+        "eslint": "5.4.0",
         "file-loader": "1.1.11",
         "jest": "23.5.0",
         "less": "3.8.1",
