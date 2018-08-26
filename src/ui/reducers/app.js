@@ -4,6 +4,7 @@ export default function app(state = {}, action = {}) {
 
     switch (action.type) {
         case SET_SOURCE_PATH:
+            document.title = `Quick Delete - ${action.sourcePath}`
             return {...state, sourcePath: action.sourcePath}
 
         case SET_FILES:
