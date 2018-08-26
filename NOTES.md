@@ -17,6 +17,14 @@
 
 * No-results page for when selected folder has no photos
 
+* Really long lists of delete images causes app the scroll vertically
+
+* Hotkey to hide rejected and show only rejected
+
+* Reset selected index to zero after delete
+
+* Create thumbnails of images and cache to improve performance
+
 
 ## Tech Debt
 
