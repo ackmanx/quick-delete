@@ -1,10 +1,5 @@
 # Basic Functionality
 
-## MVP
-
-* Provide method for user to send list of files to delete to node
-    * Display "Are you sure" in modal with yes/no buttons
-
 ## V2
 
 * Prompt once to select a folder to use and save the location
@@ -17,7 +12,6 @@
     * Display spinner in modal while waiting
     * Show results in modal of how many deleted and how many failed
     * If any images failed to delete, report the filename
-
 
 * 2 column mode to see image side-by-side
 
