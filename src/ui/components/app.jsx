@@ -51,7 +51,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setSourcePath: sourcePath => {
         dispatch({type: SET_SOURCE_PATH, sourcePath})
-        dispatch(getFiles(sourcePath))
+        dispatch(getFiles())
     },
     handleMarkDelete: () => dispatch(markDeleteAction()),
 })

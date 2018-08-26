@@ -41,19 +41,18 @@ export class ConfirmDelete extends React.Component {
 
     onClickButtonYes() {
         this.props.onClose()
-        this.props.handleStartDeletes(this.props.sourcePath)
+        this.props.handleStartDeletes()
     }
 }
 
 const mapStateToProps = state => ({
     listToDelete: state.app.listToDelete,
-    sourcePath: state.app.sourcePath,
 })
 
 const mapDispatchToProps = dispatch => ({
-    handleStartDeletes: (sourcePath) => {
+    handleStartDeletes: () => {
         dispatch(startDeletesAction())
-        dispatch(getFiles(sourcePath))
+        dispatch(getFiles())
     },
 })
 
