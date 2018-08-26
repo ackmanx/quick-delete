@@ -11,6 +11,7 @@ export class ConfirmDelete extends React.Component {
     static propTypes = {
         listToDelete: PropTypes.array,
         handleStartDeletes: PropTypes.func,
+        onClose: PropTypes.func,
     }
 
     static defaultProps = {}

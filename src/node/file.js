@@ -10,7 +10,7 @@ exports.getImageFiles = sourceDir => {
         const fileAbsolute = path.join(sourceDir, file)
 
         if (/.(jpg|jpeg)$/.test(file)) {
-            const dimensions = sizeOf(fileAbsolute);
+            const dimensions = sizeOf(fileAbsolute)
 
             imagesAndFolders.push({
                 isDirectory: false,

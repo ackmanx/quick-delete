@@ -1,9 +1,13 @@
 import './modal.less'
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class Modal extends React.Component {
 
-    static propTypes = {}
+    static propTypes = {
+        children: PropTypes.object,
+        onClose: PropTypes.func,
+    }
 
     static defaultProps = {}
 

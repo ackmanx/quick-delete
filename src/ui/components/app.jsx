@@ -1,5 +1,6 @@
 import './app.less'
 import React from 'react'
+import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import getFiles from '../actions/get-files'
 import FullScreenImage from './full-screen-image'
@@ -9,6 +10,15 @@ import markDeleteAction from '../actions/mark-delete'
 import InfoBar from './info-bar'
 
 export class App extends React.Component {
+
+    static propTypes = {
+        currentImage: PropTypes.object,
+        listToDelete: PropTypes.array,
+        selectedFileIndex: PropTypes.number,
+        totalFilesCount: PropTypes.number,
+        handleMarkDelete: PropTypes.func,
+        setSourcePath: PropTypes.func,
+    }
 
     static defaultProps = {
         currentImage: {},
