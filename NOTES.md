@@ -21,8 +21,6 @@
 
 * Hotkey to hide rejected and show only rejected
 
-* Reset selected index to zero after delete
-
 * Create thumbnails of images and cache to improve performance
 
 * Add video support
