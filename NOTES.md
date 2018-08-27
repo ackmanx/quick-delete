@@ -25,6 +25,9 @@
 
 * Create thumbnails of images and cache to improve performance
 
+* Add video support
+    * Give a visual cue that this is a video
+
 
 ## Tech Debt
 
