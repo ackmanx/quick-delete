@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 export default class Modal extends React.Component {
 
     static propTypes = {
-        children: PropTypes.object,
+        children: PropTypes.array,
         onClose: PropTypes.func,
     }
 
