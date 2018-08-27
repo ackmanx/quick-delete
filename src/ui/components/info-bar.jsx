@@ -2,8 +2,9 @@ import './info-bar.less'
 import React from 'react'
 import PropTypes from 'prop-types'
 import Menu from './menu'
+import connect from 'react-redux/es/connect/connect'
 
-export default class InfoBar extends React.Component {
+export class InfoBar extends React.Component {
 
     static propTypes = {
         selectedFileIndex: PropTypes.number,
@@ -30,3 +31,14 @@ export default class InfoBar extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    selectedFileIndex: state.app.selectedFileIndex,
+    totalFilesCount: state.files.length,
+    image: state.files[state.app.selectedFileIndex],
+    listToDelete: state.app.listToDelete,
+})
+
+const mapDispatchToProps = () => ({})
+
+export default connect(mapStateToProps, mapDispatchToProps)(InfoBar)
