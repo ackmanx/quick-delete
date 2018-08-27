@@ -3,20 +3,11 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
-const fs = require('fs')
 const utils = require('./utils')
 
-//*** Create Test Data ********************************
-const testDataDirectory = utils.getTestDataDirectory()
-if (!fs.existsSync(testDataDirectory)) {
-    fs.mkdirSync(testDataDirectory)
+if (process.env.ENV === 'dev') {
+    utils.createTestData()
 }
-fs.copyFileSync(path.resolve('src/test/images/1024x768.jpg'), `${testDataDirectory}/1024x768.jpg`)
-fs.copyFileSync(path.resolve('src/test/images/1080x1920.jpg'), `${testDataDirectory}/1080x1920.jpg`)
-fs.copyFileSync(path.resolve('src/test/images/1920x1080.jpg'), `${testDataDirectory}/1920x1080.jpg`)
-fs.copyFileSync(path.resolve('src/test/images/2448x3264.jpg'), `${testDataDirectory}/2448x3264.jpg`)
-fs.copyFileSync(path.resolve('src/test/images/3264x2448.jpg'), `${testDataDirectory}/3264x2448.jpg`)
-//*** **************** ********************************
 
 // Keep a global reference of the window object.
 // If you don't, the window will be closed automatically when the JavaScript object is garbage collected.

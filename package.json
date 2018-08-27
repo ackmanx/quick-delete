@@ -5,7 +5,7 @@
     "repository": "",
     "main": "src/node/entry.js",
     "scripts": {
-        "electron": "electron .",
+        "electron": "export ENV=dev; electron .",
         "webpack": "webpack --watch --progress --mode=development",
         "webpack-release": "webpack --mode=production",
         "lint": "eslint --ext .js --ext .jsx src",
