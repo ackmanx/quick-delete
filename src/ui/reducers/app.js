@@ -1,4 +1,4 @@
-import {MARK_TO_DELETE, NEXT_PHOTO, PREVIOUS_PHOTO, SET_FILES, SET_SOURCE_PATH} from '../actions/action-types'
+import {MARK_TO_DELETE, NEXT_PHOTO, PREVIOUS_PHOTO, RESET_SELECTED_FILE_INDEX, SET_FILES, SET_SOURCE_PATH} from '../actions/action-types'
 
 export default function app(state = {}, action = {}) {
 
@@ -34,6 +34,9 @@ export default function app(state = {}, action = {}) {
             }
 
             return {...state, listToDelete}
+
+        case RESET_SELECTED_FILE_INDEX:
+            return {...state, selectedFileIndex: 0}
     }
 
     return state
