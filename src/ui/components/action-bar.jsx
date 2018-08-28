@@ -10,13 +10,20 @@ export class ActionBar extends React.Component {
     static propTypes = {
         currentImage: PropTypes.object,
         listToDelete: PropTypes.array,
+        folderHasFiles: PropTypes.bool,
         handleMarkDelete: PropTypes.func,
     }
 
-    static defaultProps = {}
+    static defaultProps = {
+        currentImage: {},
+    }
 
     render() {
-        const {currentImage, listToDelete, handleMarkDelete} = this.props
+        const {currentImage, listToDelete, folderHasFiles, handleMarkDelete} = this.props
+
+        if (!folderHasFiles) {
+            return null
+        }
 
         const markedForDelete = listToDelete.includes(currentImage.srcOriginal)
 
@@ -37,6 +44,7 @@ export class ActionBar extends React.Component {
 const mapStateToProps = state => ({
     currentImage: state.files[state.app.selectedFileIndex],
     listToDelete: state.app.listToDelete,
+    folderHasFiles: state.app.folderHasFiles,
 })
 
 const mapDispatchToProps = dispatch => ({

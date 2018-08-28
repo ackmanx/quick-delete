@@ -8,16 +8,15 @@ export default class FullScreenImage extends React.Component {
         image: PropTypes.object,
     }
 
-    static defaultProps = {
-        image: {}
-    }
+    static defaultProps = {}
 
     render() {
         const {image} = this.props
 
         return (
             <div className='full-screen-image'>
-                <img src={image.srcOriginal}/>
+                {image && <img src={image.srcOriginal}/>}
+                {!image && <h1>No images found :(</h1>}
             </div>
         )
     }

@@ -8,7 +8,7 @@ export default function app(state = {}, action = {}) {
             return {...state, sourcePath: action.sourcePath}
 
         case SET_FILES:
-            return {...state, maxFileIndex: action.files.length - 1}
+            return {...state, maxFileIndex: action.files.length - 1, folderHasFiles: !!action.files.length}
 
         case PREVIOUS_PHOTO:
         case NEXT_PHOTO:

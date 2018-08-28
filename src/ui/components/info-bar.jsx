@@ -10,18 +10,21 @@ export class InfoBar extends React.Component {
         selectedFileIndex: PropTypes.number,
         totalFilesCount: PropTypes.number,
         image: PropTypes.object,
+        folderHasFiles: PropTypes.bool,
         listToDelete: PropTypes.array,
     }
 
-    static defaultProps = {}
+    static defaultProps = {
+        image: {}
+    }
 
     render() {
-        const {selectedFileIndex, listToDelete, totalFilesCount, image} = this.props
+        const {selectedFileIndex, listToDelete, folderHasFiles, totalFilesCount, image} = this.props
 
         return (
             <div className='info-bar'>
                 <div className='count'>
-                    {selectedFileIndex + 1} of {totalFilesCount}
+                    {folderHasFiles && <div>{selectedFileIndex + 1} of {totalFilesCount}</div>}
                 </div>
                 <div className='path'>
                     {image.srcOriginal}
@@ -37,6 +40,7 @@ const mapStateToProps = state => ({
     totalFilesCount: state.files.length,
     image: state.files[state.app.selectedFileIndex],
     listToDelete: state.app.listToDelete,
+    folderHasFiles: state.app.folderHasFiles,
 })
 
 const mapDispatchToProps = () => ({})

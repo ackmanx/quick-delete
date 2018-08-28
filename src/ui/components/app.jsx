@@ -15,9 +15,7 @@ export class App extends React.Component {
         setSourcePath: PropTypes.func,
     }
 
-    static defaultProps = {
-        currentImage: {},
-    }
+    static defaultProps = {}
 
     constructor(props) {
         super()
