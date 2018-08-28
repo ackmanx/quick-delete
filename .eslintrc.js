@@ -21,6 +21,7 @@ module.exports = {
     rules: {
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
+        'no-unused-vars': ["error", { args: 'none' }],
         'react/no-unused-prop-types': 'error',
         'linebreak-style': ['error', 'unix'],
         'no-case-declarations': 'off',

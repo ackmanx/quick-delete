@@ -7,6 +7,7 @@ import FullScreenImage from './full-screen-image'
 import ConnectedActionBar from './action-bar'
 import {SET_SOURCE_PATH} from '../actions/action-types'
 import ConnectedInfoBar from './info-bar'
+import ConnectedOpenFolder from './modals/open-folder'
 
 export class App extends React.Component {
 
@@ -17,10 +18,20 @@ export class App extends React.Component {
 
     static defaultProps = {}
 
+    state = {}
+
     constructor(props) {
-        super()
-        const utils = require('electron').remote.require('./utils')
-        props.setSourcePath(utils.getTestDataDirectory())
+        super(props)
+        const node_storage = require('electron').remote.require('./storage')
+        const sourcePath = node_storage.getSourcePath()
+
+        if (sourcePath) {
+            props.setSourcePath(sourcePath)
+        }
+        else {
+            /* todo: change to dispatch */
+            this.state = {openFolder: true}
+        }
     }
 
     render() {
@@ -28,6 +39,7 @@ export class App extends React.Component {
 
         return (
             <div className='app'>
+                {this.state.openFolder && <ConnectedOpenFolder/>}
                 <ConnectedInfoBar/>
                 <FullScreenImage image={currentImage}/>
                 <ConnectedActionBar/>

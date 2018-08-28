@@ -8,6 +8,8 @@ exports.idGenerator = (function* idMaker() {
     }
 })()
 
+exports.isDev = () => process.env.ENV === 'dev'
+
 exports.getTestDataDirectory = () => path.join(process.env.HOME, '/quick-delete-test-data')
 
 exports.createTestData = () => {

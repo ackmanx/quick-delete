@@ -5,7 +5,7 @@ const path = require('path')
 const url = require('url')
 const utils = require('./utils')
 
-if (process.env.ENV === 'dev') {
+if (utils.isDev()) {
     utils.createTestData()
 }
 
