@@ -2,8 +2,6 @@
 
 ## V2
 
-* Prompt once to select a folder to use and save the location
-
 * Allow user to change folder source
     * Open modal asking for folder path with browse button
     * Refresh folder source after yes/no
@@ -14,8 +12,6 @@
     * If any images failed to delete, report the filename
 
 * 2 column mode to see image side-by-side
-
-* No-results page for when selected folder has no photos
 
 * Really long lists of delete images causes app the scroll vertically
 
