@@ -8,6 +8,7 @@ export default class Menu extends React.Component {
 
     static propTypes = {
         listToDelete: PropTypes.array,
+        showOpenFolderModal: PropTypes.func,
     }
 
     static defaultProps = {
@@ -73,6 +74,7 @@ export default class Menu extends React.Component {
 
     onClickOpenFolder(e) {
         e.stopPropagation()
+        this.props.showOpenFolderModal()
         this.closeMenu()
     }
 

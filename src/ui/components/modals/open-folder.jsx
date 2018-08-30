@@ -12,6 +12,7 @@ export class OpenFolder extends React.Component {
     static propTypes = {
         closeModal: PropTypes.func,
         handleOpenFolder: PropTypes.func,
+        selectedFolder: PropTypes.string,
     }
 
     static defaultProps = {}
@@ -27,7 +28,7 @@ export class OpenFolder extends React.Component {
     }
 
     render() {
-        const {closeModal} = this.props
+        const {closeModal, selectedFolder} = this.props
 
         return (
             <div className='open-folder'>
@@ -36,7 +37,7 @@ export class OpenFolder extends React.Component {
                     <div className='body-container'>
                         <button className='select-folder-button' onClick={this.openFileDialog}>Choose Folder</button>
                         <div className='selected-folder-path'>
-                            {this.state.selectedFolder}
+                            {this.state.selectedFolder || selectedFolder}
                         </div>
                     </div>
                     <div className='button-container'>
@@ -54,12 +55,23 @@ export class OpenFolder extends React.Component {
     }
 
     onClickSubmit() {
+        const selectedFolderFromState = this.state.selectedFolder[0]
+        const currentlyOpenedFolder = this.props.selectedFolder
+
+        //Don't do anything if the user tries to open a folder but doesn't say which folder
+        if (!selectedFolderFromState && !currentlyOpenedFolder) {
+            return
+        }
+
         this.props.closeModal()
-        this.props.handleOpenFolder(this.state.selectedFolder[0])
+        //If user just selected a folder, use that. Otherwise, use the currently opened folder
+        this.props.handleOpenFolder(selectedFolderFromState || currentlyOpenedFolder)
     }
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+    selectedFolder: state.app.sourcePath
+})
 
 const mapDispatchToProps = dispatch => ({
     handleOpenFolder: selectedFolder => {

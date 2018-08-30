@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Menu from './menu'
 import connect from 'react-redux/es/connect/connect'
+import {MODAL_OPEN_FOLDER_OPEN} from '../actions/action-types'
 
 export class InfoBar extends React.Component {
 
@@ -12,6 +13,7 @@ export class InfoBar extends React.Component {
         image: PropTypes.object,
         folderHasFiles: PropTypes.bool,
         listToDelete: PropTypes.array,
+        showOpenFolderModal: PropTypes.func,
     }
 
     static defaultProps = {
@@ -19,7 +21,7 @@ export class InfoBar extends React.Component {
     }
 
     render() {
-        const {selectedFileIndex, listToDelete, folderHasFiles, totalFilesCount, image} = this.props
+        const {selectedFileIndex, listToDelete, folderHasFiles, showOpenFolderModal, totalFilesCount, image} = this.props
 
         return (
             <div className='info-bar'>
@@ -29,7 +31,7 @@ export class InfoBar extends React.Component {
                 <div className='path'>
                     {image.srcOriginal}
                 </div>
-                <Menu listToDelete={listToDelete}/>
+                <Menu listToDelete={listToDelete} showOpenFolderModal={showOpenFolderModal}/>
             </div>
         )
     }
@@ -43,6 +45,8 @@ const mapStateToProps = state => ({
     folderHasFiles: state.app.folderHasFiles,
 })
 
-const mapDispatchToProps = () => ({})
+const mapDispatchToProps = dispatch => ({
+    showOpenFolderModal: () => dispatch({type: MODAL_OPEN_FOLDER_OPEN})
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(InfoBar)
