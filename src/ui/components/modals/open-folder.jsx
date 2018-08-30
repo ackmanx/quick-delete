@@ -14,6 +14,10 @@ export class OpenFolder extends React.Component {
 
     static defaultProps = {}
 
+    state = {
+        selectedFolder: ''
+    }
+
     constructor(props) {
         super(props)
         this.openFileDialog = this.openFileDialog.bind(this)
@@ -25,8 +29,11 @@ export class OpenFolder extends React.Component {
             <div className='open-folder'>
                 <Modal>
                     <h1>Select a folder to open</h1>
-                    <div className='content'>
+                    <div className='body-container'>
                         <button className='select-folder-button' onClick={this.openFileDialog}>Choose Folder</button>
+                        <div className='selected-folder-path'>
+                            {this.state.selectedFolder}
+                        </div>
                     </div>
                     <div className='button-container'>
                         <button className='primary-button' onClick={this.onClickSubmit}>Open</button>
