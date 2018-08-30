@@ -2,10 +2,6 @@
 
 ## V2
 
-* Allow user to change folder source
-    * Open modal asking for folder path with browse button
-    * Refresh folder source after yes/no
-
 * Provide method for user to send list of files to delete to node
     * Display spinner in modal while waiting
     * Show results in modal of how many deleted and how many failed
@@ -25,11 +21,7 @@
 
 ## Tech Debt
 
-* Should I make other components connected?
-
 * Should I create a color pallete?
-
-* Make getFiles a thunk so it can get the selected folder automatically
 
 
 # QA Testing Scenarios
