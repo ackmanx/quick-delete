@@ -5,10 +5,12 @@ import Modal from './modal'
 import PropTypes from 'prop-types'
 import getFiles from '../../actions/get-files'
 import updateSelectedFolder from '../../actions/update-selected-folder'
+import {MODAL_OPEN_FOLDER_CLOSE} from '../../actions/action-types'
 
 export class OpenFolder extends React.Component {
 
     static propTypes = {
+        closeModal: PropTypes.func,
         handleOpenFolder: PropTypes.func,
     }
 
@@ -25,9 +27,11 @@ export class OpenFolder extends React.Component {
     }
 
     render() {
+        const {closeModal} = this.props
+
         return (
             <div className='open-folder'>
-                <Modal>
+                <Modal onClose={closeModal}>
                     <h1>Select a folder to open</h1>
                     <div className='body-container'>
                         <button className='select-folder-button' onClick={this.openFileDialog}>Choose Folder</button>
@@ -37,10 +41,7 @@ export class OpenFolder extends React.Component {
                     </div>
                     <div className='button-container'>
                         <button className='primary-button' onClick={this.onClickSubmit}>Open</button>
-                        {/* onclick will set modal in redux to false */}
-                        <button className='secondary-button' onClick={() => {
-                        }}>Cancel
-                        </button>
+                        <button className='secondary-button' onClick={closeModal}>Cancel</button>
                     </div>
                 </Modal>
             </div>
@@ -53,6 +54,7 @@ export class OpenFolder extends React.Component {
     }
 
     onClickSubmit() {
+        this.props.closeModal()
         this.props.handleOpenFolder(this.state.selectedFolder[0])
     }
 }
@@ -64,6 +66,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(updateSelectedFolder(selectedFolder))
         dispatch(getFiles())
     },
+    closeModal: () => dispatch({type: MODAL_OPEN_FOLDER_CLOSE}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(OpenFolder)

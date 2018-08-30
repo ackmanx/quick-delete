@@ -5,20 +5,19 @@ import {connect} from 'react-redux'
 import getFiles from '../actions/get-files'
 import FullScreenImage from './full-screen-image'
 import ConnectedActionBar from './action-bar'
-import {SET_SOURCE_PATH} from '../actions/action-types'
+import {MODAL_OPEN_FOLDER_OPEN, SET_SOURCE_PATH} from '../actions/action-types'
 import ConnectedInfoBar from './info-bar'
-import ConnectedOpenFolder from './modals/open-folder'
+import ConnectedModalController from './modals/modal-controller'
 
 export class App extends React.Component {
 
     static propTypes = {
         currentImage: PropTypes.object,
         setSourcePath: PropTypes.func,
+        showOpenFolderModal: PropTypes.func,
     }
 
     static defaultProps = {}
-
-    state = {}
 
     constructor(props) {
         super(props)
@@ -29,8 +28,7 @@ export class App extends React.Component {
             props.setSourcePath(sourcePath)
         }
         else {
-            /* todo: change to dispatch */
-            this.state = {openFolder: true}
+            props.showOpenFolderModal()
         }
     }
 
@@ -39,7 +37,7 @@ export class App extends React.Component {
 
         return (
             <div className='app'>
-                {this.state.openFolder && <ConnectedOpenFolder/>}
+                <ConnectedModalController/>
                 <ConnectedInfoBar/>
                 <FullScreenImage image={currentImage}/>
                 <ConnectedActionBar/>
@@ -57,6 +55,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch({type: SET_SOURCE_PATH, sourcePath})
         dispatch(getFiles())
     },
+    showOpenFolderModal: () => dispatch({type: MODAL_OPEN_FOLDER_OPEN}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
