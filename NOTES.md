@@ -2,8 +2,9 @@
 
 ## V2
 
+* Delete modal maybe should be a view? Show thumbnails of all about to delete
+
 * Provide method for user to send list of files to delete to node
-    * Display spinner in modal while waiting
     * Show results in modal of how many deleted and how many failed
     * If any images failed to delete, report the filename
 
