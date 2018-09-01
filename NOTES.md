@@ -2,15 +2,16 @@
 
 ## V2
 
+* Remove Open Folder modal
+    * On click of menu, immediately open dialog and on selection immediately refresh
+
 * Delete modal maybe should be a view? Show thumbnails of all about to delete
 
 * Provide method for user to send list of files to delete to node
-    * Show results in modal of how many deleted and how many failed
+    * Show results of how many deleted and how many failed
     * If any images failed to delete, report the filename
 
 * 2 column mode to see image side-by-side
-
-* Really long lists of delete images causes app the scroll vertically
 
 * Hotkey to hide rejected and show only rejected
 
@@ -18,6 +19,8 @@
 
 * Add video support
     * Give a visual cue that this is a video
+
+* Support windows paths
 
 
 ## Tech Debt
