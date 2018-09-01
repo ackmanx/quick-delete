@@ -2,12 +2,20 @@
     "name": "quick-delete",
     "version": "0.0.0",
     "description": "A super simple application to destroy photos because you have too many",
+    "author": "Me, myself and I",
     "repository": "",
     "main": "src/node/entry.js",
+    "build": {
+        "appId": "quick.delete",
+        "mac": {
+            "category": "awesome.photo.deleter"
+        }
+    },
     "scripts": {
         "electron": "export ENV=dev; electron .",
         "webpack": "webpack --watch --progress --mode=development",
         "webpack-release": "webpack --mode=production",
+        "dist": "electron-builder",
         "lint": "eslint --ext .js --ext .jsx src",
         "test": "jest --config=src/test/jest-config.js"
     },
@@ -37,6 +45,7 @@
         "copy-webpack-plugin": "4.5.2",
         "css-loader": "1.0.0",
         "electron": "2.0.7",
+        "electron-builder": "20.28.3",
         "electron-devtools-installer": "2.2.4",
         "enzyme": "3.4.1",
         "enzyme-adapter-react-16": "1.2.0",
@@ -49,5 +58,8 @@
         "url-loader": "1.1.0",
         "webpack": "4.16.5",
         "webpack-cli": "3.1.0"
+    },
+    "NOTES": {
+        "build": "This is specific to electron-builder to package and distribute as an application"
     }
 }
