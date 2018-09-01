@@ -22,6 +22,8 @@
 
 * Support windows paths
 
+* File name bar on top should use ... if it wraps to a 2nd line
+
 
 ## Tech Debt
 
