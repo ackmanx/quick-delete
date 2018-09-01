@@ -9,7 +9,7 @@ exports.getImageFiles = sourceDir => {
     fs.readdirSync(sourceDir).forEach(file => {
         const fileAbsolute = path.join(sourceDir, file)
 
-        if (/.(jpg|jpeg)$/.test(file)) {
+        if (/.(jpg|jpeg)$/.test(file.toLocaleLowerCase())) {
             const dimensions = sizeOf(fileAbsolute)
 
             imagesAndFolders.push({
