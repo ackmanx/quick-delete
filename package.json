@@ -44,7 +44,7 @@
         "babel-preset-react": "6.24.1",
         "copy-webpack-plugin": "4.5.2",
         "css-loader": "1.0.0",
-        "electron": "2.0.7",
+        "electron": "7.2.4",
         "electron-builder": "20.28.3",
         "electron-devtools-installer": "2.2.4",
         "enzyme": "3.4.1",
